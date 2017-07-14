@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="organizeModelStoreContainer" CdmEntityContainer="organizeEntities">
+    <EntitySetMapping Name="datacatalog">
+      <EntityTypeMapping TypeName="organizeModel.datacatalog">
+        <MappingFragment StoreEntitySet="datacatalog">
+          <ScalarProperty Name="catalogid" ColumnName="catalogid" />
+          <ScalarProperty Name="catainfo" ColumnName="catainfo" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="datainfo">
+      <EntityTypeMapping TypeName="organizeModel.datainfo">
+        <MappingFragment StoreEntitySet="datainfo">
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="signature" ColumnName="signature" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="picurs" ColumnName="picurs" />
+          <ScalarProperty Name="picurd" ColumnName="picurd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payinfo">
+      <EntityTypeMapping TypeName="organizeModel.payinfo">
+        <MappingFragment StoreEntitySet="payinfo">
+          <ScalarProperty Name="payid" ColumnName="payid" />
+          <ScalarProperty Name="paytime" ColumnName="paytime" />
+          <ScalarProperty Name="paymount" ColumnName="paymount" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+          <ScalarProperty Name="paydate" ColumnName="paydate" />
+          <ScalarProperty Name="out_trade_no" ColumnName="out_trade_no" />
+          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="querylog">
+      <EntityTypeMapping TypeName="organizeModel.querylog">
+        <MappingFragment StoreEntitySet="querylog">
+          <ScalarProperty Name="logid" ColumnName="logid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="strkey" ColumnName="strkey" />
+          <ScalarProperty Name="qdate" ColumnName="qdate" />
+          <ScalarProperty Name="qtime" ColumnName="qtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="r_datacata">
+      <EntityTypeMapping TypeName="organizeModel.r_datacata">
+        <MappingFragment StoreEntitySet="r_datacata">
+          <ScalarProperty Name="catalogid" ColumnName="catalogid" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="syslog">
+      <EntityTypeMapping TypeName="organizeModel.syslog">
+        <MappingFragment StoreEntitySet="syslog">
+          <ScalarProperty Name="logid" ColumnName="logid" />
+          <ScalarProperty Name="logdate" ColumnName="logdate" />
+          <ScalarProperty Name="logtime" ColumnName="logtime" />
+          <ScalarProperty Name="logcontent" ColumnName="logcontent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userinfo">
+      <EntityTypeMapping TypeName="organizeModel.userinfo">
+        <MappingFragment StoreEntitySet="userinfo">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="openid" ColumnName="openid" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userlog">
+      <EntityTypeMapping TypeName="organizeModel.userlog">
+        <MappingFragment StoreEntitySet="userlog">
+          <ScalarProperty Name="logid" ColumnName="logid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="act" ColumnName="act" />
+          <ScalarProperty Name="model" ColumnName="model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uts">
+      <EntityTypeMapping TypeName="organizeModel.uts">
+        <MappingFragment StoreEntitySet="uts">
+          <ScalarProperty Name="session_key" ColumnName="session_key" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tv_datainfos">
+      <EntityTypeMapping TypeName="organizeModel.tv_datainfos">
+        <MappingFragment StoreEntitySet="tv_datainfos">
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="signature" ColumnName="signature" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="catainfo" ColumnName="catainfo" />
+          <ScalarProperty Name="catalogid" ColumnName="catalogid" />
+          <ScalarProperty Name="picurs" ColumnName="picurs" />
+          <ScalarProperty Name="picurd" ColumnName="picurd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tv_purchased">
+      <EntityTypeMapping TypeName="organizeModel.tv_purchased">
+        <MappingFragment StoreEntitySet="tv_purchased">
+          <ScalarProperty Name="payid" ColumnName="payid" />
+          <ScalarProperty Name="paytime" ColumnName="paytime" />
+          <ScalarProperty Name="paymount" ColumnName="paymount" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+          <ScalarProperty Name="paydate" ColumnName="paydate" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="signature" ColumnName="signature" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ogquestionnaire">
+      <EntityTypeMapping TypeName="organizeModel.ogquestionnaire">
+        <MappingFragment StoreEntitySet="ogquestionnaire">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="picurl" ColumnName="picurl" />
+          <ScalarProperty Name="qqid" ColumnName="qqid" />
+          <ScalarProperty Name="place" ColumnName="place" />
+          <ScalarProperty Name="membersflag" ColumnName="membersflag" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="educated" ColumnName="educated" />
+          <ScalarProperty Name="identitycard" ColumnName="identitycard" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="nations" ColumnName="nations" />
+          <ScalarProperty Name="nativeplace" ColumnName="nativeplace" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="qid" ColumnName="qid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recordtel">
+      <EntityTypeMapping TypeName="organizeModel.recordtel">
+        <MappingFragment StoreEntitySet="recordtel">
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="teltime" ColumnName="teltime" />
+          <ScalarProperty Name="teldate" ColumnName="teldate" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

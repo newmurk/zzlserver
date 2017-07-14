@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dataserverModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="datacatalog">
+          <Key>
+            <PropertyRef Name="catalogid" />
+          </Key>
+          <Property Name="catalogid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="catainfo" Type="varchar" MaxLength="255" />
+          <Property Name="sid" Type="int" />
+        </EntityType>
+        <EntityType Name="datainfo">
+          <Key>
+            <PropertyRef Name="dataid" />
+          </Key>
+          <Property Name="dataid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="255" />
+          <Property Name="describe" Type="varchar" MaxLength="255" />
+          <Property Name="amount" Type="varchar" MaxLength="18" />
+          <Property Name="url" Type="varchar" MaxLength="255" />
+          <Property Name="signature" Type="varchar" MaxLength="255" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
+          <Property Name="picurs" Type="varchar" MaxLength="255" />
+          <Property Name="picurd" Type="varchar" MaxLength="255" />
+          <Property Name="ddate" Type="varchar" MaxLength="10" />
+          <Property Name="dtime" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="payinfo">
+          <Key>
+            <PropertyRef Name="payid" />
+          </Key>
+          <Property Name="payid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paytime" Type="varchar" MaxLength="8" />
+          <Property Name="paymount" Type="varchar" MaxLength="18" />
+          <Property Name="userid" Type="varchar" MaxLength="36" />
+          <Property Name="dataid" Type="int" />
+          <Property Name="paydate" Type="varchar" MaxLength="10" />
+          <Property Name="out_trade_no" Type="varchar" MaxLength="24" />
+          <Property Name="transaction_id" Type="varchar" MaxLength="28" />
+        </EntityType>
+        <EntityType Name="querylog">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="varchar" MaxLength="36" />
+          <Property Name="strkey" Type="varchar" MaxLength="45" />
+          <Property Name="qdate" Type="varchar" MaxLength="10" />
+          <Property Name="qtime" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="questionnaire">
+          <Key>
+            <PropertyRef Name="qid" />
+          </Key>
+          <Property Name="qid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="age" Type="varchar" MaxLength="11" />
+          <Property Name="company" Type="varchar" MaxLength="255" />
+          <Property Name="position" Type="varchar" MaxLength="255" />
+          <Property Name="mobile" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="area" Type="varchar" MaxLength="255" />
+          <Property Name="dataid" Type="int" />
+          <Property Name="userid" Type="varchar" MaxLength="36" />
+        </EntityType>
+        <EntityType Name="r_datacata">
+          <Key>
+            <PropertyRef Name="catalogid" />
+            <PropertyRef Name="dataid" />
+          </Key>
+          <Property Name="catalogid" Type="int" Nullable="false" />
+          <Property Name="dataid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rankinglist">
+          <Key>
+            <PropertyRef Name="rankid" />
+          </Key>
+          <Property Name="rankid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="begindate" Type="varchar" MaxLength="10" />
+          <Property Name="enddate" Type="varchar" MaxLength="10" />
+          <Property Name="winner" Type="varchar" MaxLength="36" />
+          <Property Name="giftpicurl" Type="varchar" MaxLength="255" />
+          <Property Name="gifttitle" Type="varchar" MaxLength="255" />
+          <Property Name="giftcontent" Type="varchar" MaxLength="255" />
+          <Property Name="cur" Type="int" />
+        </EntityType>
+        <EntityType Name="readcount">
+          <Key>
+            <PropertyRef Name="readid" />
+          </Key>
+          <Property Name="rcount" Type="int" />
+          <Property Name="dataid" Type="int" />
+          <Property Name="userid" Type="varchar" MaxLength="36" />
+          <Property Name="readid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sharpcount">
+          <Key>
+            <PropertyRef Name="sharpid" />
+          </Key>
+          <Property Name="sharpid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="varchar" MaxLength="36" />
+          <Property Name="scount" Type="int" />
+          <Property Name="dataid" Type="int" />
+          <Property Name="sharpdate" Type="varchar" MaxLength="10" />
+          <Property Name="sharptime" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="syslog">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logdate" Type="varchar" MaxLength="10" />
+          <Property Name="logtime" Type="varchar" MaxLength="10" />
+          <Property Name="logcontent" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="45" />
+          <Property Name="age" Type="varchar" MaxLength="3" />
+          <Property Name="mobile" Type="varchar" MaxLength="11" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="openid" Type="varchar" MaxLength="28" />
+          <Property Name="mail" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="userlog">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="act" Type="varchar" MaxLength="15" />
+          <Property Name="model" Type="varbinary" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="uts">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="session_key" Type="varchar" MaxLength="255" />
+          <Property Name="token" Type="varchar" MaxLength="32" />
+          <Property Name="userid" Type="varchar" MaxLength="36" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.dataserver.tv_datainfos”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="tv_datainfos">
+          <Key>
+            <PropertyRef Name="dataid" />
+            <PropertyRef Name="catalogid" />
+          </Key>
+          <Property Name="dataid" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="255" />
+          <Property Name="describe" Type="varchar" MaxLength="255" />
+          <Property Name="amount" Type="varchar" MaxLength="18" />
+          <Property Name="url" Type="varchar" MaxLength="255" />
+          <Property Name="signature" Type="varchar" MaxLength="255" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
+          <Property Name="catainfo" Type="varchar" MaxLength="255" />
+          <Property Name="catalogid" Type="int" Nullable="false" />
+          <Property Name="picurs" Type="varchar" MaxLength="255" />
+          <Property Name="picurd" Type="varchar" MaxLength="255" />
+          <Property Name="ddate" Type="varchar" MaxLength="10" />
+          <Property Name="dtime" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.dataserver.tv_purchased”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="tv_purchased">
+          <Key>
+            <PropertyRef Name="payid" />
+          </Key>
+          <Property Name="payid" Type="int" Nullable="false" />
+          <Property Name="paytime" Type="varchar" MaxLength="8" />
+          <Property Name="paymount" Type="varchar" MaxLength="18" />
+          <Property Name="userid" Type="varchar" MaxLength="36" />
+          <Property Name="dataid" Type="int" />
+          <Property Name="paydate" Type="varchar" MaxLength="10" />
+          <Property Name="title" Type="varchar" MaxLength="255" />
+          <Property Name="signature" Type="varchar" MaxLength="255" />
+          <Property Name="url" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="dataserverModelStoreContainer">
+          <EntitySet Name="datacatalog" EntityType="Self.datacatalog" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="datainfo" EntityType="Self.datainfo" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="payinfo" EntityType="Self.payinfo" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="querylog" EntityType="Self.querylog" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="questionnaire" EntityType="Self.questionnaire" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="r_datacata" EntityType="Self.r_datacata" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="rankinglist" EntityType="Self.rankinglist" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="readcount" EntityType="Self.readcount" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="sharpcount" EntityType="Self.sharpcount" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="syslog" EntityType="Self.syslog" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="userinfo" EntityType="Self.userinfo" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="userlog" EntityType="Self.userlog" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="uts" EntityType="Self.uts" Schema="dataserver" store:Type="Tables" />
+          <EntitySet Name="tv_datainfos" EntityType="Self.tv_datainfos" store:Type="Views" store:Schema="dataserver">
+            <DefiningQuery>SELECT
+`tv_datainfos`.`dataid`, 
+`tv_datainfos`.`title`, 
+`tv_datainfos`.`describe`, 
+`tv_datainfos`.`amount`, 
+`tv_datainfos`.`url`, 
+`tv_datainfos`.`signature`, 
+`tv_datainfos`.`type`, 
+`tv_datainfos`.`catainfo`, 
+`tv_datainfos`.`catalogid`, 
+`tv_datainfos`.`picurs`, 
+`tv_datainfos`.`picurd`, 
+`tv_datainfos`.`ddate`, 
+`tv_datainfos`.`dtime`
+FROM `tv_datainfos` AS `tv_datainfos`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tv_purchased" EntityType="Self.tv_purchased" store:Type="Views" store:Schema="dataserver">
+            <DefiningQuery>SELECT
+`tv_purchased`.`payid`, 
+`tv_purchased`.`paytime`, 
+`tv_purchased`.`paymount`, 
+`tv_purchased`.`userid`, 
+`tv_purchased`.`dataid`, 
+`tv_purchased`.`paydate`, 
+`tv_purchased`.`title`, 
+`tv_purchased`.`signature`, 
+`tv_purchased`.`url`
+FROM `tv_purchased` AS `tv_purchased`</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dataserverModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dataserverEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="datacatalog" EntityType="dataserverModel.datacatalog" />
+          <EntitySet Name="payinfo" EntityType="dataserverModel.payinfo" />
+          <EntitySet Name="querylog" EntityType="dataserverModel.querylog" />
+          <EntitySet Name="r_datacata" EntityType="dataserverModel.r_datacata" />
+          <EntitySet Name="syslog" EntityType="dataserverModel.syslog" />
+          <EntitySet Name="userlog" EntityType="dataserverModel.userlog" />
+          <EntitySet Name="uts" EntityType="dataserverModel.uts" />
+          <EntitySet Name="tv_purchased" EntityType="dataserverModel.tv_purchased" />
+          <EntitySet Name="readcount" EntityType="dataserverModel.readcount" />
+          <EntitySet Name="questionnaire" EntityType="dataserverModel.questionnaire" />
+          <EntitySet Name="datainfo" EntityType="dataserverModel.datainfo" />
+          <EntitySet Name="tv_datainfos" EntityType="dataserverModel.tv_datainfos" />
+          <EntitySet Name="sharpcount" EntityType="dataserverModel.sharpcount" />
+          <EntitySet Name="rankinglist" EntityType="dataserverModel.rankinglist" />
+          <EntitySet Name="userinfo" EntityType="dataserverModel.userinfo" />
+        </EntityContainer>
+        <EntityType Name="datacatalog">
+          <Key>
+            <PropertyRef Name="catalogid" />
+          </Key>
+          <Property Name="catalogid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="catainfo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="sid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="payinfo">
+          <Key>
+            <PropertyRef Name="payid" />
+          </Key>
+          <Property Name="payid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paytime" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="paymount" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="dataid" Type="Int32" />
+          <Property Name="paydate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="out_trade_no" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="transaction_id" Type="String" MaxLength="28" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="querylog">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="strkey" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="qdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="qtime" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="r_datacata">
+          <Key>
+            <PropertyRef Name="catalogid" />
+            <PropertyRef Name="dataid" />
+          </Key>
+          <Property Name="catalogid" Type="Int32" Nullable="false" />
+          <Property Name="dataid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="syslog">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="logdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="logtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="logcontent" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="userlog">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="act" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="model" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="uts">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="session_key" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="token" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="userid" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tv_purchased">
+          <Key>
+            <PropertyRef Name="payid" />
+          </Key>
+          <Property Name="payid" Type="Int32" Nullable="false" />
+          <Property Name="paytime" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="paymount" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="dataid" Type="Int32" />
+          <Property Name="paydate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="signature" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="readcount">
+          <Key>
+            <PropertyRef Name="readid" />
+          </Key>
+          <Property Name="rcount" Type="Int32" />
+          <Property Name="dataid" Type="Int32" />
+          <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="readid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="questionnaire">
+          <Key>
+            <PropertyRef Name="qid" />
+          </Key>
+          <Property Name="qid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="company" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="area" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="dataid" Type="Int32" />
+          <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="datainfo">
+          <Key>
+            <PropertyRef Name="dataid" />
+          </Key>
+          <Property Name="dataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="describe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="signature" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="picurs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="picurd" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ddate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tv_datainfos">
+          <Key>
+            <PropertyRef Name="dataid" />
+            <PropertyRef Name="catalogid" />
+          </Key>
+          <Property Name="dataid" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="describe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="signature" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="catainfo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="catalogid" Type="Int32" Nullable="false" />
+          <Property Name="picurs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="picurd" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ddate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sharpcount">
+          <Key>
+            <PropertyRef Name="sharpid" />
+          </Key>
+          <Property Name="sharpid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="scount" Type="Int32" />
+          <Property Name="dataid" Type="Int32" />
+          <Property Name="sharpdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="sharptime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="rankinglist">
+          <Key>
+            <PropertyRef Name="rankid" />
+          </Key>
+          <Property Name="rankid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="begindate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="enddate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="winner" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="giftpicurl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="gifttitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="giftcontent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cur" Type="Int32" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="openid" Type="String" MaxLength="28" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dataserverModelStoreContainer" CdmEntityContainer="dataserverEntities">
+          <EntitySetMapping Name="datacatalog">
+            <EntityTypeMapping TypeName="dataserverModel.datacatalog">
+              <MappingFragment StoreEntitySet="datacatalog">
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="catainfo" ColumnName="catainfo" />
+                <ScalarProperty Name="catalogid" ColumnName="catalogid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payinfo">
+            <EntityTypeMapping TypeName="dataserverModel.payinfo">
+              <MappingFragment StoreEntitySet="payinfo">
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+                <ScalarProperty Name="out_trade_no" ColumnName="out_trade_no" />
+                <ScalarProperty Name="paydate" ColumnName="paydate" />
+                <ScalarProperty Name="dataid" ColumnName="dataid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="paymount" ColumnName="paymount" />
+                <ScalarProperty Name="paytime" ColumnName="paytime" />
+                <ScalarProperty Name="payid" ColumnName="payid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="querylog">
+            <EntityTypeMapping TypeName="dataserverModel.querylog">
+              <MappingFragment StoreEntitySet="querylog">
+                <ScalarProperty Name="qtime" ColumnName="qtime" />
+                <ScalarProperty Name="qdate" ColumnName="qdate" />
+                <ScalarProperty Name="strkey" ColumnName="strkey" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="r_datacata">
+            <EntityTypeMapping TypeName="dataserverModel.r_datacata">
+              <MappingFragment StoreEntitySet="r_datacata">
+                <ScalarProperty Name="dataid" ColumnName="dataid" />
+                <ScalarProperty Name="catalogid" ColumnName="catalogid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="syslog">
+            <EntityTypeMapping TypeName="dataserverModel.syslog">
+              <MappingFragment StoreEntitySet="syslog">
+                <ScalarProperty Name="logcontent" ColumnName="logcontent" />
+                <ScalarProperty Name="logtime" ColumnName="logtime" />
+                <ScalarProperty Name="logdate" ColumnName="logdate" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userlog">
+            <EntityTypeMapping TypeName="dataserverModel.userlog">
+              <MappingFragment StoreEntitySet="userlog">
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="act" ColumnName="act" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uts">
+            <EntityTypeMapping TypeName="dataserverModel.uts">
+              <MappingFragment StoreEntitySet="uts">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="session_key" ColumnName="session_key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tv_purchased">
+            <EntityTypeMapping TypeName="dataserverModel.tv_purchased">
+              <MappingFragment StoreEntitySet="tv_purchased">
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="signature" ColumnName="signature" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="paydate" ColumnName="paydate" />
+                <ScalarProperty Name="dataid" ColumnName="dataid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="paymount" ColumnName="paymount" />
+                <ScalarProperty Name="paytime" ColumnName="paytime" />
+                <ScalarProperty Name="payid" ColumnName="payid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="readcount">
+            <EntityTypeMapping TypeName="dataserverModel.readcount">
+              <MappingFragment StoreEntitySet="readcount">
+                <ScalarProperty Name="readid" ColumnName="readid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="dataid" ColumnName="dataid" />
+                <ScalarProperty Name="rcount" ColumnName="rcount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="questionnaire">
+            <EntityTypeMapping TypeName="dataserverModel.questionnaire">
+              <MappingFragment StoreEntitySet="questionnaire">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="dataid" ColumnName="dataid" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="qid" ColumnName="qid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="datainfo">
+            <EntityTypeMapping TypeName="dataserverModel.datainfo">
+              <MappingFragment StoreEntitySet="datainfo">
+                <ScalarProperty Name="dtime" ColumnName="dtime" />
+                <ScalarProperty Name="ddate" ColumnName="ddate" />
+                <ScalarProperty Name="picurd" ColumnName="picurd" />
+                <ScalarProperty Name="picurs" ColumnName="picurs" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="signature" ColumnName="signature" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="dataid" ColumnName="dataid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tv_datainfos">
+            <EntityTypeMapping TypeName="dataserverModel.tv_datainfos">
+              <MappingFragment StoreEntitySet="tv_datainfos">
+                <ScalarProperty Name="dtime" ColumnName="dtime" />
+                <ScalarProperty Name="ddate" ColumnName="ddate" />
+                <ScalarProperty Name="picurd" ColumnName="picurd" />
+                <ScalarProperty Name="picurs" ColumnName="picurs" />
+                <ScalarProperty Name="catalogid" ColumnName="catalogid" />
+                <ScalarProperty Name="catainfo" ColumnName="catainfo" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="signature" ColumnName="signature" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="dataid" ColumnName="dataid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sharpcount">
+            <EntityTypeMapping TypeName="dataserverModel.sharpcount">
+              <MappingFragment StoreEntitySet="sharpcount">
+                <ScalarProperty Name="sharptime" ColumnName="sharptime" />
+                <ScalarProperty Name="sharpdate" ColumnName="sharpdate" />
+                <ScalarProperty Name="dataid" ColumnName="dataid" />
+                <ScalarProperty Name="scount" ColumnName="scount" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="sharpid" ColumnName="sharpid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rankinglist">
+            <EntityTypeMapping TypeName="dataserverModel.rankinglist">
+              <MappingFragment StoreEntitySet="rankinglist">
+                <ScalarProperty Name="cur" ColumnName="cur" />
+                <ScalarProperty Name="giftcontent" ColumnName="giftcontent" />
+                <ScalarProperty Name="gifttitle" ColumnName="gifttitle" />
+                <ScalarProperty Name="giftpicurl" ColumnName="giftpicurl" />
+                <ScalarProperty Name="winner" ColumnName="winner" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="begindate" ColumnName="begindate" />
+                <ScalarProperty Name="rankid" ColumnName="rankid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userinfo">
+            <EntityTypeMapping TypeName="dataserverModel.userinfo">
+              <MappingFragment StoreEntitySet="userinfo">
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="openid" ColumnName="openid" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

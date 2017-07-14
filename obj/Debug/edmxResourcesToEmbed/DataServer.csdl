@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dataserverModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="journal">
+    <Key>
+      <PropertyRef Name="journalid" />
+    </Key>
+    <Property Name="journalid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="jdatatime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="jmount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="debit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="credit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="r_datacata">
+    <Key>
+      <PropertyRef Name="catalogid" />
+      <PropertyRef Name="dataid" />
+    </Key>
+    <Property Name="catalogid" Type="Int32" Nullable="false" />
+    <Property Name="dataid" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userlog">
+    <Key>
+      <PropertyRef Name="logid" />
+    </Key>
+    <Property Name="logid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="act" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="model" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="dataserverEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="journal" EntityType="Self.journal" />
+    <EntitySet Name="r_datacata" EntityType="Self.r_datacata" />
+    <EntitySet Name="userlog" EntityType="Self.userlog" />
+    <EntitySet Name="tv_purchased" EntityType="dataserverModel.tv_purchased" />
+    <EntitySet Name="userinfo" EntityType="dataserverModel.userinfo" />
+    <EntitySet Name="uts" EntityType="dataserverModel.uts" />
+    <EntitySet Name="article" EntityType="dataserverModel.article" />
+    <EntitySet Name="questioninfo" EntityType="dataserverModel.questioninfo" />
+    <EntitySet Name="datacatalog" EntityType="dataserverModel.datacatalog" />
+    <EntitySet Name="querylog" EntityType="dataserverModel.querylog" />
+    <EntitySet Name="datainfo" EntityType="dataserverModel.datainfo" />
+    <EntitySet Name="tv_datainfos" EntityType="dataserverModel.tv_datainfos" />
+    <EntitySet Name="syslog" EntityType="dataserverModel.syslog" />
+    <EntitySet Name="payinfo" EntityType="dataserverModel.payinfo" />
+  </EntityContainer>
+  <EntityType Name="tv_purchased">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="Int32" Nullable="false" />
+    <Property Name="paytime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paymount" Type="Decimal" />
+    <Property Name="userid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dataid" Type="Int32" />
+    <Property Name="paydate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="signature" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="openid" Type="String" MaxLength="28" FixedLength="false" Unicode="false" />
+    <Property Name="mail" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="uts">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="session_key" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="token" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="userid" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="article">
+    <Key>
+      <PropertyRef Name="ArticleID" />
+    </Key>
+    <Property Name="ArticleID" Type="Int32" Nullable="false" />
+    <Property Name="Articlelink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Articletitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="questioninfo">
+    <Key>
+      <PropertyRef Name="qid" />
+    </Key>
+    <Property Name="userid" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="qtitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="qcontent" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="qid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="datacatalog">
+    <Key>
+      <PropertyRef Name="catalogid" />
+    </Key>
+    <Property Name="catalogid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="catainfo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="sid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="querylog">
+    <Key>
+      <PropertyRef Name="logid" />
+    </Key>
+    <Property Name="logid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="strkey" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="qdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="qtime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="datainfo">
+    <Key>
+      <PropertyRef Name="dataid" />
+    </Key>
+    <Property Name="dataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="describe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="signature" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="picurs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="picurd" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tv_datainfos">
+    <Key>
+      <PropertyRef Name="dataid" />
+      <PropertyRef Name="catalogid" />
+    </Key>
+    <Property Name="dataid" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="describe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="signature" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="catainfo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="catalogid" Type="Int32" Nullable="false" />
+    <Property Name="picurs" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="picurd" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="syslog">
+    <Key>
+      <PropertyRef Name="logid" />
+    </Key>
+    <Property Name="logid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="logdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="logtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="logcontent" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="payinfo">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paytime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paymount" Type="Decimal" />
+    <Property Name="userid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dataid" Type="Int32" />
+    <Property Name="paydate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="out_trade_no" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

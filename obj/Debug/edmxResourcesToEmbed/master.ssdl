@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="masterModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cmessageinfo">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sender" Type="varchar" MaxLength="36" />
+    <Property Name="recipient" Type="varchar" MaxLength="36" />
+    <Property Name="content" Type="text" />
+    <Property Name="fileurl" Type="varchar" MaxLength="255" />
+    <Property Name="cdate" Type="varchar" MaxLength="10" />
+    <Property Name="ctime" Type="varchar" MaxLength="10" />
+    <Property Name="ctype" Type="int" />
+  </EntityType>
+  <EntityType Name="dmessageinfo">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sender" Type="varchar" MaxLength="36" />
+    <Property Name="recipient" Type="varchar" MaxLength="36" />
+    <Property Name="content" Type="text" />
+    <Property Name="fileurl" Type="varchar" MaxLength="255" />
+    <Property Name="cdate" Type="varchar" MaxLength="10" />
+    <Property Name="ctime" Type="varchar" MaxLength="10" />
+    <Property Name="ctype" Type="int" />
+  </EntityType>
+  <EntityType Name="masterinfo">
+    <Key>
+      <PropertyRef Name="masterid" />
+    </Key>
+    <Property Name="masterid" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="mastername" Type="varchar" MaxLength="45" />
+    <Property Name="picurl" Type="varchar" MaxLength="255" />
+    <Property Name="profiles" Type="text" />
+    <Property Name="serviceArry" Type="varchar" MaxLength="255" />
+    <Property Name="roomid" Type="int" />
+    <Property Name="mobile" Type="varchar" MaxLength="11" />
+    <Property Name="wxid" Type="varchar" MaxLength="20" />
+    <Property Name="mail" Type="varchar" MaxLength="255" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+    <Property Name="key" Type="varchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="mpayinfo">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="paytime" Type="varchar" MaxLength="8" />
+    <Property Name="paymount" Type="varchar" MaxLength="18" />
+    <Property Name="userid" Type="varchar" MaxLength="36" />
+    <Property Name="masterid" Type="varchar" MaxLength="36" />
+    <Property Name="paydate" Type="varchar" MaxLength="10" />
+    <Property Name="out_trade_no" Type="varchar" MaxLength="24" />
+    <Property Name="transaction_id" Type="varchar" MaxLength="28" />
+    <Property Name="begindate" Type="varchar" MaxLength="10" />
+    <Property Name="enddate" Type="varchar" MaxLength="10" />
+    <Property Name="evaluate" Type="int" />
+  </EntityType>
+  <EntityType Name="mrcomments">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mrcrid" Type="int" />
+    <Property Name="content" Type="text" />
+    <Property Name="suserid" Type="varchar" MaxLength="36" />
+    <Property Name="ruserid" Type="varchar" MaxLength="36" />
+    <Property Name="mdate" Type="varchar" MaxLength="10" />
+    <Property Name="mtime" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="mrcrinfo">
+    <Key>
+      <PropertyRef Name="mrcrid" />
+    </Key>
+    <Property Name="mrcrid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mrcid" Type="int" />
+    <Property Name="mcontent" Type="text" />
+    <Property Name="suserid" Type="varchar" MaxLength="36" />
+    <Property Name="ruserid" Type="varchar" MaxLength="36" />
+    <Property Name="mdate" Type="varchar" MaxLength="10" />
+    <Property Name="mtime" Type="varchar" MaxLength="10" />
+    <Property Name="mid" Type="int" />
+  </EntityType>
+  <EntityType Name="mreadcount">
+    <Key>
+      <PropertyRef Name="readid" />
+    </Key>
+    <Property Name="rcount" Type="int" />
+    <Property Name="masterid" Type="varchar" MaxLength="36" />
+    <Property Name="userid" Type="varchar" MaxLength="36" />
+    <Property Name="readid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mroominfo">
+    <Key>
+      <PropertyRef Name="mrcid" />
+    </Key>
+    <Property Name="mrcid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="masterid" Type="varchar" MaxLength="36" />
+    <Property Name="mrcontent" Type="text" />
+    <Property Name="fileurl" Type="text" />
+    <Property Name="cdate" Type="varchar" MaxLength="10" />
+    <Property Name="ctime" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="omessageinfo">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sender" Type="varchar" MaxLength="36" />
+    <Property Name="recipient" Type="varchar" MaxLength="36" />
+    <Property Name="content" Type="text" />
+    <Property Name="fileurl" Type="varchar" MaxLength="255" />
+    <Property Name="cdate" Type="varchar" MaxLength="10" />
+    <Property Name="ctime" Type="varchar" MaxLength="10" />
+    <Property Name="ctype" Type="int" />
+  </EntityType>
+  <EntityType Name="querylog">
+    <Key>
+      <PropertyRef Name="logid" />
+    </Key>
+    <Property Name="logid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="varchar" MaxLength="36" />
+    <Property Name="strkey" Type="varchar" MaxLength="45" />
+    <Property Name="qdate" Type="varchar" MaxLength="10" />
+    <Property Name="qtime" Type="varchar" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="r_mu">
+    <Key>
+      <PropertyRef Name="rmid" />
+    </Key>
+    <Property Name="rmid" Type="int" Nullable="false" />
+    <Property Name="mid" Type="int" />
+    <Property Name="userid" Type="varchar" MaxLength="36" />
+  </EntityType>
+  <EntityType Name="r_scu">
+    <Key>
+      <PropertyRef Name="rsu" />
+    </Key>
+    <Property Name="rsu" Type="int" Nullable="false" />
+    <Property Name="userid" Type="varchar" MaxLength="36" />
+    <Property Name="srcid" Type="int" />
+    <Property Name="rdate" Type="varchar" MaxLength="10" />
+    <Property Name="rtime" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="r_sroompayinfo">
+    <Key>
+      <PropertyRef Name="rspid" />
+    </Key>
+    <Property Name="rspid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pid" Type="int" />
+    <Property Name="sid" Type="int" />
+  </EntityType>
+  <EntityType Name="services">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="describe" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="spayinfo">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="paytime" Type="varchar" MaxLength="8" />
+    <Property Name="paymount" Type="varchar" MaxLength="18" />
+    <Property Name="userid" Type="varchar" MaxLength="36" />
+    <Property Name="paydate" Type="varchar" MaxLength="10" />
+    <Property Name="out_trade_no" Type="varchar" MaxLength="24" />
+    <Property Name="transaction_id" Type="varchar" MaxLength="28" />
+    <Property Name="begindate" Type="varchar" MaxLength="10" />
+    <Property Name="enddate" Type="varchar" MaxLength="10" />
+    <Property Name="evaluate" Type="int" />
+    <Property Name="sid" Type="int" />
+  </EntityType>
+  <EntityType Name="srcontent">
+    <Key>
+      <PropertyRef Name="srcid" />
+    </Key>
+    <Property Name="srcid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sid" Type="int" />
+    <Property Name="mrcontent" Type="text" />
+    <Property Name="fileurl" Type="varchar" MaxLength="255" />
+    <Property Name="cdate" Type="varchar" MaxLength="10" />
+    <Property Name="ctime" Type="varchar" MaxLength="10" />
+    <Property Name="ctype" Type="int" />
+  </EntityType>
+  <EntityType Name="sroominfo">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" />
+    <Property Name="begindate" Type="varchar" MaxLength="10" />
+    <Property Name="enddate" Type="varchar" MaxLength="10" />
+    <Property Name="key" Type="varchar" MaxLength="12" />
+    <Property Name="masterid" Type="varchar" MaxLength="36" />
+    <Property Name="creatdate" Type="varchar" MaxLength="10" />
+    <Property Name="creattime" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="45" />
+    <Property Name="age" Type="varchar" MaxLength="3" />
+    <Property Name="mobile" Type="varchar" MaxLength="11" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+    <Property Name="openid" Type="varchar" MaxLength="28" />
+    <Property Name="mail" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="uts">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="session_key" Type="varchar" MaxLength="255" />
+    <Property Name="token" Type="varchar" MaxLength="32" />
+    <Property Name="userid" Type="varchar" MaxLength="36" Nullable="false" />
+  </EntityType>
+  <EntityType Name="wallet">
+    <Key>
+      <PropertyRef Name="wid" />
+    </Key>
+    <Property Name="wid" Type="int" Nullable="false" />
+    <Property Name="userid" Type="varchar" MaxLength="36" />
+    <Property Name="amount" Type="varchar" MaxLength="16" />
+    <Property Name="wdate" Type="varchar" MaxLength="10" />
+    <Property Name="wtime" Type="varchar" MaxLength="10" />
+    <Property Name="adate" Type="varchar" MaxLength="10" />
+    <Property Name="atime" Type="varchar" MaxLength="10" />
+    <Property Name="subjects" Type="int" />
+  </EntityType>
+  <EntityContainer Name="masterModelStoreContainer">
+    <EntitySet Name="cmessageinfo" EntityType="Self.cmessageinfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="dmessageinfo" EntityType="Self.dmessageinfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="masterinfo" EntityType="Self.masterinfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="mpayinfo" EntityType="Self.mpayinfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="mrcomments" EntityType="Self.mrcomments" Schema="master" store:Type="Tables" />
+    <EntitySet Name="mrcrinfo" EntityType="Self.mrcrinfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="mreadcount" EntityType="Self.mreadcount" Schema="master" store:Type="Tables" />
+    <EntitySet Name="mroominfo" EntityType="Self.mroominfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="omessageinfo" EntityType="Self.omessageinfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="querylog" EntityType="Self.querylog" Schema="master" store:Type="Tables" />
+    <EntitySet Name="r_mu" EntityType="Self.r_mu" Schema="master" store:Type="Tables" />
+    <EntitySet Name="r_scu" EntityType="Self.r_scu" Schema="master" store:Type="Tables" />
+    <EntitySet Name="r_sroompayinfo" EntityType="Self.r_sroompayinfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="services" EntityType="Self.services" Schema="master" store:Type="Tables" />
+    <EntitySet Name="spayinfo" EntityType="Self.spayinfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="srcontent" EntityType="Self.srcontent" Schema="master" store:Type="Tables" />
+    <EntitySet Name="sroominfo" EntityType="Self.sroominfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="userinfo" EntityType="Self.userinfo" Schema="master" store:Type="Tables" />
+    <EntitySet Name="uts" EntityType="Self.uts" Schema="master" store:Type="Tables" />
+    <EntitySet Name="wallet" EntityType="Self.wallet" Schema="master" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

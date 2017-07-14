@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dataserverModelStoreContainer" CdmEntityContainer="dataserverEntities">
+    <EntitySetMapping Name="datacatalog">
+      <EntityTypeMapping TypeName="dataserverModel.datacatalog">
+        <MappingFragment StoreEntitySet="datacatalog">
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="catainfo" ColumnName="catainfo" />
+          <ScalarProperty Name="catalogid" ColumnName="catalogid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payinfo">
+      <EntityTypeMapping TypeName="dataserverModel.payinfo">
+        <MappingFragment StoreEntitySet="payinfo">
+          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+          <ScalarProperty Name="out_trade_no" ColumnName="out_trade_no" />
+          <ScalarProperty Name="paydate" ColumnName="paydate" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="paymount" ColumnName="paymount" />
+          <ScalarProperty Name="paytime" ColumnName="paytime" />
+          <ScalarProperty Name="payid" ColumnName="payid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="querylog">
+      <EntityTypeMapping TypeName="dataserverModel.querylog">
+        <MappingFragment StoreEntitySet="querylog">
+          <ScalarProperty Name="qtime" ColumnName="qtime" />
+          <ScalarProperty Name="qdate" ColumnName="qdate" />
+          <ScalarProperty Name="strkey" ColumnName="strkey" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="logid" ColumnName="logid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="r_datacata">
+      <EntityTypeMapping TypeName="dataserverModel.r_datacata">
+        <MappingFragment StoreEntitySet="r_datacata">
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+          <ScalarProperty Name="catalogid" ColumnName="catalogid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="syslog">
+      <EntityTypeMapping TypeName="dataserverModel.syslog">
+        <MappingFragment StoreEntitySet="syslog">
+          <ScalarProperty Name="logcontent" ColumnName="logcontent" />
+          <ScalarProperty Name="logtime" ColumnName="logtime" />
+          <ScalarProperty Name="logdate" ColumnName="logdate" />
+          <ScalarProperty Name="logid" ColumnName="logid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userlog">
+      <EntityTypeMapping TypeName="dataserverModel.userlog">
+        <MappingFragment StoreEntitySet="userlog">
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="act" ColumnName="act" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="logid" ColumnName="logid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uts">
+      <EntityTypeMapping TypeName="dataserverModel.uts">
+        <MappingFragment StoreEntitySet="uts">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="session_key" ColumnName="session_key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tv_purchased">
+      <EntityTypeMapping TypeName="dataserverModel.tv_purchased">
+        <MappingFragment StoreEntitySet="tv_purchased">
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="signature" ColumnName="signature" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="paydate" ColumnName="paydate" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="paymount" ColumnName="paymount" />
+          <ScalarProperty Name="paytime" ColumnName="paytime" />
+          <ScalarProperty Name="payid" ColumnName="payid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="readcount">
+      <EntityTypeMapping TypeName="dataserverModel.readcount">
+        <MappingFragment StoreEntitySet="readcount">
+          <ScalarProperty Name="readid" ColumnName="readid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+          <ScalarProperty Name="rcount" ColumnName="rcount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="questionnaire">
+      <EntityTypeMapping TypeName="dataserverModel.questionnaire">
+        <MappingFragment StoreEntitySet="questionnaire">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="qid" ColumnName="qid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="datainfo">
+      <EntityTypeMapping TypeName="dataserverModel.datainfo">
+        <MappingFragment StoreEntitySet="datainfo">
+          <ScalarProperty Name="dtime" ColumnName="dtime" />
+          <ScalarProperty Name="ddate" ColumnName="ddate" />
+          <ScalarProperty Name="picurd" ColumnName="picurd" />
+          <ScalarProperty Name="picurs" ColumnName="picurs" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="signature" ColumnName="signature" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tv_datainfos">
+      <EntityTypeMapping TypeName="dataserverModel.tv_datainfos">
+        <MappingFragment StoreEntitySet="tv_datainfos">
+          <ScalarProperty Name="dtime" ColumnName="dtime" />
+          <ScalarProperty Name="ddate" ColumnName="ddate" />
+          <ScalarProperty Name="picurd" ColumnName="picurd" />
+          <ScalarProperty Name="picurs" ColumnName="picurs" />
+          <ScalarProperty Name="catalogid" ColumnName="catalogid" />
+          <ScalarProperty Name="catainfo" ColumnName="catainfo" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="signature" ColumnName="signature" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sharpcount">
+      <EntityTypeMapping TypeName="dataserverModel.sharpcount">
+        <MappingFragment StoreEntitySet="sharpcount">
+          <ScalarProperty Name="sharptime" ColumnName="sharptime" />
+          <ScalarProperty Name="sharpdate" ColumnName="sharpdate" />
+          <ScalarProperty Name="dataid" ColumnName="dataid" />
+          <ScalarProperty Name="scount" ColumnName="scount" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="sharpid" ColumnName="sharpid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rankinglist">
+      <EntityTypeMapping TypeName="dataserverModel.rankinglist">
+        <MappingFragment StoreEntitySet="rankinglist">
+          <ScalarProperty Name="cur" ColumnName="cur" />
+          <ScalarProperty Name="giftcontent" ColumnName="giftcontent" />
+          <ScalarProperty Name="gifttitle" ColumnName="gifttitle" />
+          <ScalarProperty Name="giftpicurl" ColumnName="giftpicurl" />
+          <ScalarProperty Name="winner" ColumnName="winner" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="begindate" ColumnName="begindate" />
+          <ScalarProperty Name="rankid" ColumnName="rankid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userinfo">
+      <EntityTypeMapping TypeName="dataserverModel.userinfo">
+        <MappingFragment StoreEntitySet="userinfo">
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="openid" ColumnName="openid" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

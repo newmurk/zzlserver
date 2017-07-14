@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="masterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="mreadcount" EntityType="masterModel.mreadcount" />
+    <EntitySet Name="userinfo" EntityType="masterModel.userinfo" />
+    <EntitySet Name="uts" EntityType="masterModel.uts" />
+    <EntitySet Name="services" EntityType="masterModel.services" />
+    <EntitySet Name="querylog" EntityType="masterModel.querylog" />
+    <EntitySet Name="r_sroompayinfo" EntityType="masterModel.r_sroompayinfo" />
+    <EntitySet Name="spayinfo" EntityType="masterModel.spayinfo" />
+    <EntitySet Name="sroominfo" EntityType="masterModel.sroominfo" />
+    <EntitySet Name="srcontent" EntityType="masterModel.srcontent" />
+    <EntitySet Name="r_scu" EntityType="masterModel.r_scu" />
+    <EntitySet Name="mpayinfo" EntityType="masterModel.mpayinfo" />
+    <EntitySet Name="cmessageinfo" EntityType="masterModel.cmessageinfo" />
+    <EntitySet Name="dmessageinfo" EntityType="masterModel.dmessageinfo" />
+    <EntitySet Name="omessageinfo" EntityType="masterModel.omessageinfo" />
+    <EntitySet Name="r_mu" EntityType="masterModel.r_mu" />
+    <EntitySet Name="wallet" EntityType="masterModel.wallet" />
+    <EntitySet Name="masterinfo" EntityType="masterModel.masterinfo" />
+    <EntitySet Name="mrcomments" EntityType="masterModel.mrcomments" />
+    <EntitySet Name="mrcrinfo" EntityType="masterModel.mrcrinfo" />
+    <EntitySet Name="mroominfo" EntityType="masterModel.mroominfo" />
+  </EntityContainer>
+  <EntityType Name="mreadcount">
+    <Key>
+      <PropertyRef Name="readid" />
+    </Key>
+    <Property Name="rcount" Type="Int32" />
+    <Property Name="masterid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="readid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="openid" Type="String" MaxLength="28" FixedLength="false" Unicode="false" />
+    <Property Name="mail" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="uts">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="session_key" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="token" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="userid" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="services">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="describe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="querylog">
+    <Key>
+      <PropertyRef Name="logid" />
+    </Key>
+    <Property Name="logid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="strkey" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="qdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="qtime" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="r_sroompayinfo">
+    <Key>
+      <PropertyRef Name="rspid" />
+    </Key>
+    <Property Name="rspid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pid" Type="Int32" />
+    <Property Name="sid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="spayinfo">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paytime" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="paymount" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="paydate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="out_trade_no" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="transaction_id" Type="String" MaxLength="28" FixedLength="false" Unicode="false" />
+    <Property Name="begindate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="enddate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="evaluate" Type="Int32" />
+    <Property Name="sid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sroominfo">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="begindate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="enddate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="key" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="masterid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="creatdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="creattime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="srcontent">
+    <Key>
+      <PropertyRef Name="srcid" />
+    </Key>
+    <Property Name="srcid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sid" Type="Int32" />
+    <Property Name="mrcontent" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="fileurl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ctime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ctype" Type="Int32" />
+  </EntityType>
+  <EntityType Name="r_scu">
+    <Key>
+      <PropertyRef Name="rsu" />
+    </Key>
+    <Property Name="rsu" Type="Int32" Nullable="false" />
+    <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="srcid" Type="Int32" />
+    <Property Name="rdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="rtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="mpayinfo">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paytime" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="paymount" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="masterid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="paydate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="out_trade_no" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="transaction_id" Type="String" MaxLength="28" FixedLength="false" Unicode="false" />
+    <Property Name="begindate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="enddate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="evaluate" Type="Int32" />
+  </EntityType>
+  <EntityType Name="cmessageinfo">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sender" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="recipient" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="fileurl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ctime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ctype" Type="Int32" />
+  </EntityType>
+  <EntityType Name="dmessageinfo">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sender" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="recipient" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="fileurl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ctime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ctype" Type="Int32" />
+  </EntityType>
+  <EntityType Name="omessageinfo">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sender" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="recipient" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="fileurl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ctime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ctype" Type="Int32" />
+  </EntityType>
+  <EntityType Name="r_mu">
+    <Key>
+      <PropertyRef Name="rmid" />
+    </Key>
+    <Property Name="rmid" Type="Int32" Nullable="false" />
+    <Property Name="mid" Type="Int32" />
+    <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="wallet">
+    <Key>
+      <PropertyRef Name="wid" />
+    </Key>
+    <Property Name="wid" Type="Int32" Nullable="false" />
+    <Property Name="userid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="wdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="wtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="adate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="atime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="subjects" Type="Int32" />
+  </EntityType>
+  <EntityType Name="masterinfo">
+    <Key>
+      <PropertyRef Name="masterid" />
+    </Key>
+    <Property Name="masterid" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="mastername" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="picurl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="profiles" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="serviceArry" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="roomid" Type="Int32" />
+    <Property Name="mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="wxid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="mail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="key" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="mrcomments">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mrcrid" Type="Int32" />
+    <Property Name="content" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="suserid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="ruserid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="mdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="mtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="mrcrinfo">
+    <Key>
+      <PropertyRef Name="mrcrid" />
+    </Key>
+    <Property Name="mrcrid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mrcid" Type="Int32" />
+    <Property Name="mcontent" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="suserid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="ruserid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="mdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="mtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="mid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="mroominfo">
+    <Key>
+      <PropertyRef Name="mrcid" />
+    </Key>
+    <Property Name="mrcid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="masterid" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="mrcontent" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="fileurl" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="cdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ctime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

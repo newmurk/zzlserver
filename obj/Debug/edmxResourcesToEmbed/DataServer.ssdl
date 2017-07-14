@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dataserverModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="article">
+    <Key>
+      <PropertyRef Name="ArticleID" />
+    </Key>
+    <Property Name="ArticleID" Type="int" Nullable="false" />
+    <Property Name="Articlelink" Type="varchar" MaxLength="255" />
+    <Property Name="Articletitle" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="datacatalog">
+    <Key>
+      <PropertyRef Name="catalogid" />
+    </Key>
+    <Property Name="catalogid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="catainfo" Type="varchar" MaxLength="255" />
+    <Property Name="sid" Type="int" />
+  </EntityType>
+  <EntityType Name="datainfo">
+    <Key>
+      <PropertyRef Name="dataid" />
+    </Key>
+    <Property Name="dataid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" />
+    <Property Name="describe" Type="varchar" MaxLength="255" />
+    <Property Name="amount" Type="varchar" MaxLength="255" />
+    <Property Name="url" Type="varchar" MaxLength="255" />
+    <Property Name="signature" Type="varchar" MaxLength="255" />
+    <Property Name="type" Type="varchar" MaxLength="255" />
+    <Property Name="picurs" Type="varchar" MaxLength="255" />
+    <Property Name="picurd" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="journal">
+    <Key>
+      <PropertyRef Name="journalid" />
+    </Key>
+    <Property Name="journalid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="char" MaxLength="10" />
+    <Property Name="jdatatime" Type="char" MaxLength="10" />
+    <Property Name="jmount" Type="char" MaxLength="10" />
+    <Property Name="debit" Type="char" MaxLength="10" />
+    <Property Name="credit" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="payinfo">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="paytime" Type="varchar" MaxLength="50" />
+    <Property Name="paymount" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="userid" Type="varchar" MaxLength="50" />
+    <Property Name="dataid" Type="int" />
+    <Property Name="paydate" Type="varchar" MaxLength="45" />
+    <Property Name="out_trade_no" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="querylog">
+    <Key>
+      <PropertyRef Name="logid" />
+    </Key>
+    <Property Name="logid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="varchar" MaxLength="255" />
+    <Property Name="strkey" Type="varchar" MaxLength="45" />
+    <Property Name="qdate" Type="varchar" MaxLength="45" />
+    <Property Name="qtime" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="questioninfo">
+    <Key>
+      <PropertyRef Name="qid" />
+    </Key>
+    <Property Name="userid" Type="varchar" MaxLength="40" />
+    <Property Name="qtitle" Type="varchar" MaxLength="255" />
+    <Property Name="qcontent" Type="text" />
+    <Property Name="qid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="r_datacata">
+    <Key>
+      <PropertyRef Name="catalogid" />
+      <PropertyRef Name="dataid" />
+    </Key>
+    <Property Name="catalogid" Type="int" Nullable="false" />
+    <Property Name="dataid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="syslog">
+    <Key>
+      <PropertyRef Name="logid" />
+    </Key>
+    <Property Name="logid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="logdate" Type="varchar" MaxLength="10" />
+    <Property Name="logtime" Type="varchar" MaxLength="10" />
+    <Property Name="logcontent" Type="text" />
+  </EntityType>
+  <EntityType Name="userinfo">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="45" />
+    <Property Name="age" Type="char" MaxLength="10" />
+    <Property Name="mobile" Type="char" MaxLength="10" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+    <Property Name="openid" Type="varchar" MaxLength="28" />
+    <Property Name="mail" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="userlog">
+    <Key>
+      <PropertyRef Name="logid" />
+    </Key>
+    <Property Name="logid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="act" Type="char" MaxLength="10" />
+    <Property Name="model" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="uts">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="session_key" Type="varchar" MaxLength="255" />
+    <Property Name="token" Type="varchar" MaxLength="40" />
+    <Property Name="userid" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“def.dataserver.tv_datainfos”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="tv_datainfos">
+    <Key>
+      <PropertyRef Name="dataid" />
+      <PropertyRef Name="catalogid" />
+    </Key>
+    <Property Name="dataid" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" />
+    <Property Name="describe" Type="varchar" MaxLength="255" />
+    <Property Name="amount" Type="varchar" MaxLength="255" />
+    <Property Name="url" Type="varchar" MaxLength="255" />
+    <Property Name="signature" Type="varchar" MaxLength="255" />
+    <Property Name="type" Type="varchar" MaxLength="255" />
+    <Property Name="catainfo" Type="varchar" MaxLength="255" />
+    <Property Name="catalogid" Type="int" Nullable="false" />
+    <Property Name="picurs" Type="varchar" MaxLength="255" />
+    <Property Name="picurd" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“def.dataserver.tv_purchased”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="tv_purchased">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="int" Nullable="false" />
+    <Property Name="paytime" Type="varchar" MaxLength="50" />
+    <Property Name="paymount" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="userid" Type="varchar" MaxLength="50" />
+    <Property Name="dataid" Type="int" />
+    <Property Name="paydate" Type="varchar" MaxLength="45" />
+    <Property Name="title" Type="varchar" MaxLength="255" />
+    <Property Name="signature" Type="varchar" MaxLength="255" />
+    <Property Name="url" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="dataserverModelStoreContainer">
+    <EntitySet Name="article" EntityType="Self.article" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="datacatalog" EntityType="Self.datacatalog" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="datainfo" EntityType="Self.datainfo" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="journal" EntityType="Self.journal" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="payinfo" EntityType="Self.payinfo" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="querylog" EntityType="Self.querylog" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="questioninfo" EntityType="Self.questioninfo" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="r_datacata" EntityType="Self.r_datacata" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="syslog" EntityType="Self.syslog" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="userinfo" EntityType="Self.userinfo" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="userlog" EntityType="Self.userlog" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="uts" EntityType="Self.uts" Schema="dataserver" store:Type="Tables" />
+    <EntitySet Name="tv_datainfos" EntityType="Self.tv_datainfos" store:Type="Views" store:Schema="dataserver">
+      <DefiningQuery>SELECT
+`tv_datainfos`.`dataid`, 
+`tv_datainfos`.`title`, 
+`tv_datainfos`.`describe`, 
+`tv_datainfos`.`amount`, 
+`tv_datainfos`.`url`, 
+`tv_datainfos`.`signature`, 
+`tv_datainfos`.`type`, 
+`tv_datainfos`.`catainfo`, 
+`tv_datainfos`.`catalogid`, 
+`tv_datainfos`.`picurs`, 
+`tv_datainfos`.`picurd`
+FROM `tv_datainfos` AS `tv_datainfos`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tv_purchased" EntityType="Self.tv_purchased" store:Type="Views" store:Schema="dataserver">
+      <DefiningQuery>SELECT
+`tv_purchased`.`payid`, 
+`tv_purchased`.`paytime`, 
+`tv_purchased`.`paymount`, 
+`tv_purchased`.`userid`, 
+`tv_purchased`.`dataid`, 
+`tv_purchased`.`paydate`, 
+`tv_purchased`.`title`, 
+`tv_purchased`.`signature`, 
+`tv_purchased`.`url`
+FROM `tv_purchased` AS `tv_purchased`</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

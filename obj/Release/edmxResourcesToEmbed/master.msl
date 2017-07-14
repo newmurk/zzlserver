@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="masterEntities">
+    <EntitySetMapping Name="mpayinfo">
+      <EntityTypeMapping TypeName="masterModel.mpayinfo">
+        <MappingFragment StoreEntitySet="mpayinfo">
+          <ScalarProperty Name="evaluate" ColumnName="evaluate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="begindate" ColumnName="begindate" />
+          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+          <ScalarProperty Name="out_trade_no" ColumnName="out_trade_no" />
+          <ScalarProperty Name="paydate" ColumnName="paydate" />
+          <ScalarProperty Name="masterid" ColumnName="masterid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="paymount" ColumnName="paymount" />
+          <ScalarProperty Name="paytime" ColumnName="paytime" />
+          <ScalarProperty Name="payid" ColumnName="payid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mreadcount">
+      <EntityTypeMapping TypeName="masterModel.mreadcount">
+        <MappingFragment StoreEntitySet="mreadcount">
+          <ScalarProperty Name="readid" ColumnName="readid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="masterid" ColumnName="masterid" />
+          <ScalarProperty Name="rcount" ColumnName="rcount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userinfo">
+      <EntityTypeMapping TypeName="masterModel.userinfo">
+        <MappingFragment StoreEntitySet="userinfo">
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="openid" ColumnName="openid" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uts">
+      <EntityTypeMapping TypeName="masterModel.uts">
+        <MappingFragment StoreEntitySet="uts">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="session_key" ColumnName="session_key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="services">
+      <EntityTypeMapping TypeName="masterModel.services">
+        <MappingFragment StoreEntitySet="services">
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="querylog">
+      <EntityTypeMapping TypeName="masterModel.querylog">
+        <MappingFragment StoreEntitySet="querylog">
+          <ScalarProperty Name="qtime" ColumnName="qtime" />
+          <ScalarProperty Name="qdate" ColumnName="qdate" />
+          <ScalarProperty Name="strkey" ColumnName="strkey" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="logid" ColumnName="logid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="masterinfo">
+      <EntityTypeMapping TypeName="masterModel.masterinfo">
+        <MappingFragment StoreEntitySet="masterinfo">
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="wxid" ColumnName="wxid" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="roomid" ColumnName="roomid" />
+          <ScalarProperty Name="serviceArry" ColumnName="serviceArry" />
+          <ScalarProperty Name="profiles" ColumnName="profiles" />
+          <ScalarProperty Name="picurl" ColumnName="picurl" />
+          <ScalarProperty Name="mastername" ColumnName="mastername" />
+          <ScalarProperty Name="masterid" ColumnName="masterid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roominfo">
+      <EntityTypeMapping TypeName="masterModel.roominfo">
+        <MappingFragment StoreEntitySet="roominfo">
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="begindate" ColumnName="begindate" />
+          <ScalarProperty Name="rootimage" ColumnName="rootimage" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mrcrinfo">
+      <EntityTypeMapping TypeName="masterModel.mrcrinfo">
+        <MappingFragment StoreEntitySet="mrcrinfo">
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+          <ScalarProperty Name="mdate" ColumnName="mdate" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="mcontent" ColumnName="mcontent" />
+          <ScalarProperty Name="mrcid" ColumnName="mrcid" />
+          <ScalarProperty Name="mrcrid" ColumnName="mrcrid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mroominfo">
+      <EntityTypeMapping TypeName="masterModel.mroominfo">
+        <MappingFragment StoreEntitySet="mroominfo">
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="cdate" ColumnName="cdate" />
+          <ScalarProperty Name="fileurl" ColumnName="fileurl" />
+          <ScalarProperty Name="mrcontent" ColumnName="mrcontent" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="mrcid" ColumnName="mrcid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
